@@ -52,6 +52,4 @@ app.post("/post", (req, res) => {
     res.json({ message: "Это стартовая страница нашего приложения" + req.body.user });
 });
 
-app.listen(3001, () => {
-    console.log("Сервер запущен на 3001 порту");
-});
+app.listen();
