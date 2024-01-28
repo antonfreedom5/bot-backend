@@ -52,4 +52,8 @@ app.post("/post", (req, res) => {
     res.json({ message: "Это стартовая страница нашего приложения" + req.body.user });
 });
 
+app.get("/", (req, res) => {
+    res.json({ message: "Это стартовая страница нашего приложения" });
+});
+
 app.listen();
