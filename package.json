@@ -1,9 +1,8 @@
 {
-  "name": "test",
+  "name": "backend",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
-  "type": "module",
+  "main": "main.js",
   "scripts": {
     "start": "node main.js"
   },

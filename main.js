@@ -1,7 +1,7 @@
-import { Telegraf, Markup } from 'telegraf'
-import { message } from "telegraf/filters";
-import Express from "express";
-import BodyParser from "body-parser";
+const { Telegraf, Markup } = require('telegraf');
+const { message } = require('telegraf/filters');
+const Express = require('express');
+const BodyParser = require('body-parser');
 
 let order = {};
 
