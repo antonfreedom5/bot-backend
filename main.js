@@ -1,5 +1,4 @@
 const { Telegraf, Markup } = require('telegraf');
-const { message } = require('telegraf/filters');
 const Express = require('express');
 const BodyParser = require('body-parser');
 
@@ -13,16 +12,11 @@ bot.command('start', (ctx) => {
         Markup.inlineKeyboard([
             Markup.button.webApp(
                 'Сделать заказ',
-                'https://antonfreedom5.github.io/'
+                process.env.SITE_URL
             )
         ])
         );
 })
-
-// bot.on(message('web_app_data'), async (ctx) => {
-//     const data = ctx.webAppData.data.json()
-//     ctx.reply(`Ваше сообщение: ${data}` ?? 'empty message')
-// })
 
 bot.on('callback_query', async (ctx) => {
     const id = ctx.update.callback_query.data;
@@ -49,7 +43,6 @@ app.post("/", (req, res) => {
     bot.telegram.sendMessage(process.env.GROUP_ID, 'Новый заказ!\n' + phone + place, Markup.inlineKeyboard([
         Markup.button.callback('Беру заказ', id.toString())
     ]))
-    res.json({ message: "Это стартовая страница нашего приложения" + req.body.user });
 });
 
 app.listen();
