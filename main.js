@@ -18,10 +18,9 @@ bot.on('callback_query', async (ctx) => {
     const id = ctx.update.callback_query.data;
     const message = ctx.update.callback_query.message;
     const from = ctx.update.callback_query.from;
-    const currentOrder = order;
     console.log(message.chat.type);
     ctx.editMessageText({chat_id: process.env.GROUP_ID, message_id: message.message_id, text: message.text + '\n В работу взял ' + from.first_name, reply_markup: null});
-    await bot.telegram.sendMessage(from.id, 'Ура! У тебя новый заказ!\n ' + currentOrder.phone + currentOrder.place);
+    await bot.telegram.sendMessage(from.id, 'Ура! У тебя новый заказ!\n ');
 })
 
 bot.launch();
