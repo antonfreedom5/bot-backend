@@ -1,8 +1,4 @@
 const { Telegraf, Markup } = require('telegraf');
-const Express = require('express');
-const BodyParser = require('body-parser');
-
-let order = {};
 
 const bot = new Telegraf(process.env.BOT_ID);
 
@@ -29,20 +25,3 @@ bot.on('callback_query', async (ctx) => {
 })
 
 bot.launch();
-
-const app = Express();
-
-app.use(BodyParser.json());
-
-app.use(BodyParser.urlencoded({ extended: true }));
-
-app.post("/", (req, res) => {
-    const { machineId, attachmentId, phone, place, date } = req.body;
-    const id = 1;
-    order = { id, machineId, attachmentId, phone, place, date }
-    bot.telegram.sendMessage(process.env.GROUP_ID, 'Новый заказ!\n' + phone + place, Markup.inlineKeyboard([
-        Markup.button.callback('Беру заказ', id.toString())
-    ]))
-});
-
-app.listen();
