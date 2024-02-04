@@ -1,5 +1,5 @@
 deployment:
   tasks:
-    - export REPOPATH=/home/tiseby/zbuduem.by/repository/backend/*
-    - export SITEPATH=/home/tiseby/zbuduem.by/backend/
+    - export REPOPATH=/home/tiseby/zbuduem.by/repository/bot-backend/*
+    - export SITEPATH=/home/tiseby/zbuduem.by/bot-backend/
     - /bin/rsync -rav --exclude '.git' --exclude '.cpanel.yml' --del $REPOPATH $SITEPATH
